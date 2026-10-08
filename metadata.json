@@ -1,0 +1,6 @@
+{
+  "name": "CREAMARKET - Emprendimiento Estudiantil",
+  "description": "Donde tu creatividad se convierte en oportunidad. Plataforma educativa de emprendimiento escolar para productos y servicios creativos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

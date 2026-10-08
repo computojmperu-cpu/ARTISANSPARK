@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CREAMARKET - Emprendimiento Estudiantil</title>
+    <meta name="description" content="Donde tu creatividad se convierte en oportunidad. Plataforma educativa de emprendimiento escolar para productos y servicios creativos." />
+    <meta property="og:title" content="CREAMARKET - Emprendimiento Estudiantil" />
+    <meta property="og:description" content="Donde tu creatividad se convierte en oportunidad. Plataforma educativa de emprendimiento escolar para productos y servicios creativos." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <!-- Barra de Simulación de Roles (Herramienta interactiva para probar los roles) -->
+    <aside class="role-bar" aria-label="Simulador de sesión y roles">
+      <div class="role-bar-inner">
+        <div class="role-bar-info">
+          <span class="role-title">Sesión Activa:</span>
+          <strong id="active-user-name">Visitante</strong>
+          <span class="role-badge" id="active-user-role-badge">Público</span>
+        </div>
+        <div class="role-actions">
+          <span style="font-size: 0.75rem; color: #94a3b8; margin-right: 0.25rem;">Probar rol:</span>
+          <button type="button" class="role-switch-btn active" data-role="visitante">Visitante</button>
+          <button type="button" class="role-switch-btn" data-role="cliente">Cliente (Camila)</button>
+          <button type="button" class="role-switch-btn" data-role="estudiante">Emprendedor (Mateo)</button>
+          <button type="button" class="role-switch-btn" data-role="admin">Admin (Prof. Alberto)</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Encabezado Principal (Top Bar Contract: 3 Zonas) -->
+    <header class="header-main">
+      <div class="container">
+        <div class="header-inner">
+          <!-- Zona 1: Marca y Eslogan -->
+          <a href="#" class="brand-link" id="nav-brand-btn">
+            <div class="brand-icon">C</div>
+            <div class="brand-text">
+              <span class="brand-name">CREAMARKET</span>
+              <span class="brand-tagline">Donde tu creatividad se convierte en oportunidad</span>
+            </div>
+          </a>
+
+          <!-- Zona 2: Navegación Dinámica -->
+          <nav aria-label="Navegación principal">
+            <ul class="nav-links" id="main-nav-links">
+              <!-- Se inyecta dinámicamente según la sesión -->
+            </ul>
+          </nav>
+
+          <!-- Zona 3: Acciones de Usuario -->
+          <div class="header-actions" id="main-header-actions">
+            <!-- Botones de login/registro o perfil según estado -->
+          </div>
+
+          <!-- Botón de menú móvil -->
+          <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir menú de navegación">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenido Principal Dinámico (Vistas SPA) -->
+    <main id="app-root">
+
+      <!-- ==================================================================
+           VISTA 1: INICIO (HOME)
+           ================================================================== -->
+      <section id="view-home" class="app-view view-active">
+        <!-- Hero Section -->
+        <div class="hero-section">
+          <div class="container">
+            <div class="hero-grid">
+              <div class="hero-content">
+                <span class="hero-kicker">Comunidad Educativa Creativa</span>
+                <h1 class="hero-title">
+                  Donde el talento estudiantil se transforma en <span class="highlight">oportunidades reales</span>
+                </h1>
+                <p class="hero-description">
+                  Descubre piezas de arte, repostería casera, diseño digital y artesanías creadas con pasión por los estudiantes de nuestra institución.
+                </p>
+
+                <!-- Buscador Rápido -->
+                <form class="hero-search-box" id="hero-quick-search-form">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <input type="search" id="hero-search-input" placeholder="Buscar por producto, servicio o emprendedor..." aria-label="Buscar en el catálogo" />
+                  <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
+                </form>
+
+                <div class="hero-ctas">
+                  <button type="button" class="btn btn-primary btn-lg" id="hero-btn-explore">
+                    Explorar Catálogo
+                  </button>
+                  <button type="button" class="btn btn-secondary btn-lg" id="hero-btn-publish">
+                    Crear mi Emprendimiento
+                  </button>
+                </div>
+              </div>
+
+              <div class="hero-media">
+                <div class="hero-image-frame">
+                  <img src="/src/assets/images/creamarket_hero_maker_1791492222359.jpg" alt="Taller creativo de estudiantes en CREAMARKET" loading="lazy" />
+                </div>
+                <div class="hero-floating-card">
+                  <div class="floating-card-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                  </div>
+                  <div class="floating-card-text">
+                    <strong>100% Estudiantil</strong>
+                    <span>Directo de los alumnos a la comunidad</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categorías Destacadas -->
+        <div class="container" style="padding-top: 3.5rem;">
+          <div class="section-header">
+            <div class="section-title-wrap">
+              <span class="section-kicker">Exploración Rápida</span>
+              <h2 class="section-title">Categorías Creativas</h2>
+              <p class="section-subtitle">Encuentra proyectos organizados por tipo de disciplina</p>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-see-all-categories">Ver Todo el Catálogo</button>
+          </div>
+
+          <div class="categories-grid" id="home-categories-grid">
+            <!-- Se inyecta dinámicamente -->
+          </div>
+
+          <!-- Publicaciones Destacadas -->
+          <div class="section-header">
+            <div class="section-title-wrap">
+              <span class="section-kicker">Selección Especial</span>
+              <h2 class="section-title">Emprendimientos Destacados</h2>
+              <p class="section-subtitle">Proyectos con excelente valoración y calidad artesanal</p>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-see-all-featured">Explorar Todos</button>
+          </div>
+
+          <div class="products-grid" id="home-featured-grid">
+            <!-- Se inyecta dinámicamente -->
+          </div>
+
+          <!-- Publicaciones Recientes -->
+          <div class="section-header" style="margin-top: 3.5rem;">
+            <div class="section-title-wrap">
+              <span class="section-kicker">Novedades</span>
+              <h2 class="section-title">Publicaciones Recientes</h2>
+              <p class="section-subtitle">Los últimos productos y servicios añadidos por nuestros alumnos</p>
+            </div>
+          </div>
+
+          <div class="products-grid" id="home-recent-grid">
+            <!-- Se inyecta dinámicamente -->
+          </div>
+
+          <!-- Sección Informativa: Cómo Funciona -->
+          <div class="how-it-works-section">
+            <div class="section-title-wrap" style="text-align: center; align-items: center;">
+              <span class="section-kicker">Guía Comunitaria</span>
+              <h2 class="section-title">¿Cómo Funciona CREAMARKET?</h2>
+              <p class="section-subtitle" style="max-width: 600px;">
+                Un ecosistema seguro para fomentar la educación financiera, la innovación y el trabajo colaborativo en el colegio.
+              </p>
+            </div>
+
+            <div class="how-steps-grid">
+              <div class="step-card">
+                <span class="step-number">01</span>
+                <h3 class="step-title">Descubre el talento</h3>
+                <p class="step-text">
+                  Explora las creaciones de los alumnos: desde tazas hechas a mano y repostería hasta diseño digital y clases particulares.
+                </p>
+              </div>
+
+              <div class="step-card">
+                <span class="step-number">02</span>
+                <h3 class="step-title">Envía tu solicitud</h3>
+                <p class="step-text">
+                  Elige la cantidad y fecha deseada. El estudiante recibirá tu solicitud directamente en su panel para confirmar los detalles.
+                </p>
+              </div>
+
+              <div class="step-card">
+                <span class="step-number">03</span>
+                <h3 class="step-title">Entrega coordinada</h3>
+                <p class="step-text">
+                  La entrega y pago se coordinan de forma segura dentro del entorno escolar o puntos autorizados de la institución.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           VISTA 2: EXPLORAR / CATÁLOGO
+           ================================================================== -->
+      <section id="view-explore" class="app-view">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-title-wrap">
+              <span class="section-kicker">Catálogo Escolar</span>
+              <h2 class="section-title">Explorar Publicaciones</h2>
+              <p class="section-subtitle">Encuentra exactamente lo que buscas con nuestros filtros avanzados</p>
+            </div>
+          </div>
+
+          <div class="explore-layout">
+            <!-- Filtros Laterales -->
+            <aside class="filter-sidebar" aria-label="Filtros del catálogo">
+              <div class="filter-sidebar-header">
+                <span class="filter-sidebar-title">Filtros</span>
+                <button type="button" class="filter-reset-btn" id="btn-reset-filters">Limpiar filtros</button>
+              </div>
+
+              <!-- Búsqueda en catálogo -->
+              <div class="filter-group">
+                <label for="filter-search-input" class="filter-label">Palabra clave</label>
+                <input type="search" id="filter-search-input" class="form-input" placeholder="Buscar título, autor..." />
+              </div>
+
+              <!-- Filtro de Categoría -->
+              <div class="filter-group">
+                <label for="filter-category-select" class="filter-label">Categoría</label>
+                <select id="filter-category-select" class="filter-select">
+                  <option value="">Todas las categorías</option>
+                  <!-- Inyectado dinámicamente -->
+                </select>
+              </div>
+
+              <!-- Filtro de Tipo -->
+              <div class="filter-group">
+                <label for="filter-type-select" class="filter-label">Tipo de publicación</label>
+                <select id="filter-type-select" class="filter-select">
+                  <option value="">Todos (Productos y Servicios)</option>
+                  <option value="producto">Solo Productos</option>
+                  <option value="servicio">Solo Servicios</option>
+                </select>
+              </div>
+
+              <!-- Filtro de Disponibilidad -->
+              <div class="filter-group">
+                <label for="filter-avail-select" class="filter-label">Disponibilidad</label>
+                <select id="filter-avail-select" class="filter-select">
+                  <option value="">Cualquier estado</option>
+                  <option value="disponible">Disponible inmediato</option>
+                  <option value="por_encargo">Por encargo / A pedido</option>
+                </select>
+              </div>
+
+              <!-- Filtro de Precio Máximo -->
+              <div class="filter-group">
+                <label for="filter-max-price" class="filter-label">Precio Máximo (S/.)</label>
+                <input type="number" id="filter-max-price" class="form-input" placeholder="Ej: 50" min="0" step="5" />
+              </div>
+            </aside>
+
+            <!-- Resultados del Catálogo -->
+            <div class="explore-main">
+              <div class="explore-toolbar">
+                <div class="explore-results-count" id="explore-results-count">
+                  Mostrando <strong>0</strong> publicaciones
+                </div>
+
+                <div class="explore-sort-wrap">
+                  <label for="explore-sort-select" class="explore-sort-label">Ordenar por:</label>
+                  <select id="explore-sort-select" class="form-select" style="width: auto; padding-right: 2rem;">
+                    <option value="recent">Más recientes</option>
+                    <option value="price-asc">Precio: Menor a mayor</option>
+                    <option value="price-desc">Precio: Mayor a menor</option>
+                    <option value="title">Nombre alfabético</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="products-grid" id="explore-products-grid">
+                <!-- Se inyecta dinámicamente -->
+              </div>
+
+              <!-- Estado Vacío -->
+              <div class="empty-state" id="explore-empty-state" style="display: none;">
+                <div class="empty-state-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </div>
+                <h3 class="empty-state-title">No encontramos publicaciones</h3>
+                <p class="empty-state-text">Intenta ajustar tus criterios de búsqueda o reiniciar los filtros para ver más opciones.</p>
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-empty-reset">Restablecer filtros</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           VISTA 3: DETALLE DE PUBLICACIÓN
+           ================================================================== -->
+      <section id="view-detail" class="app-view">
+        <div class="container">
+          <div style="margin-bottom: 1.5rem;">
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-detail-back">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              Volver al Catálogo
+            </button>
+          </div>
+
+          <div class="detail-layout" id="detail-layout-container">
+            <!-- Inyectado dinámicamente con la info del producto seleccionado -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           VISTA 4: PANEL DEL ESTUDIANTE EMPRENDEDOR
+           ================================================================== -->
+      <section id="view-student" class="app-view">
+        <div class="container">
+          <div class="dashboard-header">
+            <div class="dashboard-profile-info">
+              <div class="dashboard-avatar" id="student-avatar-badge">M</div>
+              <div class="dashboard-title-wrap">
+                <h2 class="dashboard-title" id="student-venture-name">Mi Emprendimiento</h2>
+                <div class="item-meta">
+                  <span id="student-user-name">Estudiante</span>
+                  <span class="meta-separator">·</span>
+                  <span id="student-grade-badge">Nivel Escolar</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button type="button" class="btn btn-primary" id="btn-open-create-product">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Nueva Publicación
+              </button>
+            </div>
+          </div>
+
+          <!-- Pestañas del Panel Emprendedor -->
+          <div class="tabs-nav">
+            <button type="button" class="tab-btn active" data-tab="student-products">Mis Publicaciones</button>
+            <button type="button" class="tab-btn" data-tab="student-orders">Pedidos Recibidos</button>
+            <button type="button" class="tab-btn" data-tab="student-profile">Datos de Mi Emprendimiento</button>
+          </div>
+
+          <!-- Pestaña 1: Mis Publicaciones -->
+          <div class="tab-panel active" id="tab-student-products">
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Publicación</th>
+                    <th>Tipo</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Disponibilidad</th>
+                    <th>Estado</th>
+                    <th style="text-align: right;">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="student-products-tbody">
+                  <!-- Se inyecta dinámicamente -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Pestaña 2: Pedidos Recibidos -->
+          <div class="tab-panel" id="tab-student-orders">
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>ID Solicitud</th>
+                    <th>Producto / Servicio</th>
+                    <th>Cliente</th>
+                    <th>Cant.</th>
+                    <th>Total Est.</th>
+                    <th>Fecha Deseada</th>
+                    <th>Estado</th>
+                    <th>Actualizar Estado</th>
+                  </tr>
+                </thead>
+                <tbody id="student-orders-tbody">
+                  <!-- Se inyecta dinámicamente -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Pestaña 3: Perfil del Emprendimiento -->
+          <div class="tab-panel" id="tab-student-profile">
+            <div class="form-panel">
+              <form id="student-profile-form">
+                <div class="form-field">
+                  <label for="prof-venture-name" class="form-label">Nombre del Emprendimiento</label>
+                  <input type="text" id="prof-venture-name" class="form-input" required />
+                </div>
+
+                <div class="form-field">
+                  <label for="prof-venture-desc" class="form-label">Descripción del Emprendimiento</label>
+                  <textarea id="prof-venture-desc" class="form-textarea" rows="3" required></textarea>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="form-field">
+                    <label for="prof-grade" class="form-label">Grado y Sección</label>
+                    <input type="text" id="prof-grade" class="form-input" placeholder="Ej: 5to Secundaria - Sección B" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="prof-contact" class="form-label">Contacto / Teléfono Escolar</label>
+                    <input type="text" id="prof-contact" class="form-input" placeholder="Ej: WhatsApp: 987654321" required />
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="prof-skills" class="form-label">Habilidades y Técnicas Principales</label>
+                  <input type="text" id="prof-skills" class="form-input" placeholder="Ej: Cerámica artesanal, acuarela, diseño digital" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Guardar Cambios del Perfil</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           VISTA 5: PANEL DEL CLIENTE
+           ================================================================== -->
+      <section id="view-client" class="app-view">
+        <div class="container">
+          <div class="dashboard-header">
+            <div class="dashboard-profile-info">
+              <div class="dashboard-avatar" id="client-avatar-badge" style="background: var(--accent);">C</div>
+              <div class="dashboard-title-wrap">
+                <h2 class="dashboard-title" id="client-display-name">Mis Pedidos Realizados</h2>
+                <div class="item-meta">
+                  <span>Cuenta de Cliente</span>
+                  <span class="meta-separator">·</span>
+                  <span id="client-email-display">cliente@colegio.edu</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button type="button" class="btn btn-secondary" id="btn-client-browse-more">
+                Explorar Más Productos
+              </button>
+            </div>
+          </div>
+
+          <div class="section-title-wrap" style="margin-bottom: 1.25rem;">
+            <h3 class="section-title" style="font-size: 1.25rem;">Historial de Solicitudes</h3>
+            <p class="section-subtitle">Sigue el estado de preparación y coordinación de tus pedidos</p>
+          </div>
+
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>N° Solicitud</th>
+                  <th>Artículo Solicitado</th>
+                  <th>Emprendedor</th>
+                  <th>Cantidad</th>
+                  <th>Total Estimado</th>
+                  <th>Fecha de Entrega</th>
+                  <th>Estado Actual</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody id="client-orders-tbody">
+                <!-- Se inyecta dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           VISTA 6: PANEL ADMINISTRADOR
+           ================================================================== -->
+      <section id="view-admin" class="app-view">
+        <div class="container">
+          <div class="dashboard-header">
+            <div class="dashboard-profile-info">
+              <div class="dashboard-avatar" style="background: #0f172a;">A</div>
+              <div class="dashboard-title-wrap">
+                <h2 class="dashboard-title">Panel de Control Administrativo</h2>
+                <div class="item-meta">
+                  <span>Prof. Alberto Navarro</span>
+                  <span class="meta-separator">·</span>
+                  <span>Moderación y Gobernanza Escolar</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Métricas Generales -->
+          <div class="admin-stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Usuarios Registrados</span>
+              <span class="stat-value tabular-nums" id="stat-total-users">0</span>
+              <span class="stat-trend">Comunidad activa</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Emprendedores</span>
+              <span class="stat-value tabular-nums" id="stat-total-students">0</span>
+              <span class="stat-trend">Alumnos creadores</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Publicaciones</span>
+              <span class="stat-value tabular-nums" id="stat-total-products">0</span>
+              <span class="stat-trend">En catálogo escolar</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Solicitudes Totales</span>
+              <span class="stat-value tabular-nums" id="stat-total-orders">0</span>
+              <span class="stat-trend">Pedidos generados</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Reportes de Atención</span>
+              <span class="stat-value tabular-nums" id="stat-total-reports">0</span>
+              <span class="stat-trend" style="color: var(--amber);">Pendientes de revisión</span>
+            </div>
+          </div>
+
+          <!-- Pestañas Administrativas -->
+          <div class="tabs-nav">
+            <button type="button" class="tab-btn active" data-tab="admin-users">Gestión de Usuarios</button>
+            <button type="button" class="tab-btn" data-tab="admin-products">Gestión de Contenido</button>
+            <button type="button" class="tab-btn" data-tab="admin-categories">Gestión de Categorías</button>
+            <button type="button" class="tab-btn" data-tab="admin-reports">Reportes y Moderación</button>
+          </div>
+
+          <!-- Tab Admin 1: Usuarios -->
+          <div class="tab-panel active" id="tab-admin-users">
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Correo Escolar</th>
+                    <th>Rol en CREAMARKET</th>
+                    <th>Estado de Cuenta</th>
+                    <th style="text-align: right;">Acción</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-users-tbody">
+                  <!-- Inyectado dinámicamente -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tab Admin 2: Publicaciones -->
+          <div class="tab-panel" id="tab-admin-products">
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Publicación</th>
+                    <th>Autor / Emprendedor</th>
+                    <th>Tipo</th>
+                    <th>Precio</th>
+                    <th>Destacado</th>
+                    <th>Estado</th>
+                    <th style="text-align: right;">Moderación</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-products-tbody">
+                  <!-- Inyectado dinámicamente -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tab Admin 3: Categorías -->
+          <div class="tab-panel" id="tab-admin-categories">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+              <div class="form-panel">
+                <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem;">Crear Nueva Categoría</h4>
+                <form id="admin-add-category-form">
+                  <div class="form-field">
+                    <label for="new-cat-name" class="form-label">Nombre de Categoría</label>
+                    <input type="text" id="new-cat-name" class="form-input" placeholder="Ej: Cerámica Utilitaria" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="new-cat-desc" class="form-label">Descripción</label>
+                    <textarea id="new-cat-desc" class="form-textarea" rows="2" placeholder="Breve descripción..."></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-sm">Añadir al Catálogo</button>
+                </form>
+              </div>
+
+              <div class="table-container">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Estado</th>
+                      <th style="text-align: right;">Acción</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-categories-tbody">
+                    <!-- Inyectado dinámicamente -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Admin 4: Reportes -->
+          <div class="tab-panel" id="tab-admin-reports">
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Publicación Reportada</th>
+                    <th>Motivo de Queja</th>
+                    <th>Detalle</th>
+                    <th>Reportado por</th>
+                    <th>Estado</th>
+                    <th style="text-align: right;">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-reports-tbody">
+                  <!-- Inyectado dinámicamente -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ====================================================================
+         MODALES Y VENTANAS EMERGENTES
+         ==================================================================== -->
+
+    <!-- Modal 1: Iniciar Sesión -->
+    <div class="modal-overlay" id="modal-login">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 class="modal-title">Iniciar Sesión</h3>
+          <button type="button" class="modal-close-btn" data-close-modal="modal-login">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="form-login">
+            <div class="form-field">
+              <label for="login-email" class="form-label">Correo Electrónico</label>
+              <input type="email" id="login-email" class="form-input" placeholder="ejemplo@colegio.edu" required />
+            </div>
+            <div class="form-field">
+              <label for="login-password" class="form-label">Contraseña</label>
+              <input type="password" id="login-password" class="form-input" placeholder="••••••••" required />
+            </div>
+            <div style="margin-bottom: 1.25rem;">
+              <a href="#" id="btn-forgot-password" style="font-size: 0.8125rem; color: var(--primary); font-weight: 600;">¿Olvidaste tu contraseña?</a>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Ingresar a CREAMARKET</button>
+          </form>
+
+          <!-- Acceso Rápido Educativo -->
+          <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); font-size: 0.8125rem;">
+            <p style="font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem;">Credenciales de demostración rápida:</p>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-quick-login-client">Cliente (Camila)</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-quick-login-student">Emprendedor (Mateo)</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-quick-login-admin">Admin (Profesor)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Registrarse -->
+    <div class="modal-overlay" id="modal-register">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 class="modal-title">Crear Cuenta en CREAMARKET</h3>
+          <button type="button" class="modal-close-btn" data-close-modal="modal-register">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="form-register">
+            <div class="form-field">
+              <label for="reg-name" class="form-label">Nombre Completo</label>
+              <input type="text" id="reg-name" class="form-input" placeholder="Nombre y Apellidos" required />
+            </div>
+            <div class="form-field">
+              <label for="reg-email" class="form-label">Correo Electrónico Institucional</label>
+              <input type="email" id="reg-email" class="form-input" placeholder="usuario@colegio.edu" required />
+            </div>
+            <div class="form-field">
+              <label for="reg-password" class="form-label">Contraseña</label>
+              <input type="password" id="reg-password" class="form-input" placeholder="Mínimo 6 caracteres" required />
+            </div>
+            <div class="form-field">
+              <label for="reg-role" class="form-label">¿Cómo deseas participar?</label>
+              <select id="reg-role" class="form-select" required>
+                <option value="cliente">Cliente / Comprador (Apoyar emprendimientos)</option>
+                <option value="estudiante">Estudiante Emprendedor (Vender creaciones)</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Completar Registro</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: Recuperación de Contraseña -->
+    <div class="modal-overlay" id="modal-forgot">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 class="modal-title">Recuperar Contraseña</h3>
+          <button type="button" class="modal-close-btn" data-close-modal="modal-forgot">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+            Ingresa tu correo institucional registrado para simular el envío del enlace de restablecimiento.
+          </p>
+          <form id="form-forgot">
+            <div class="form-field">
+              <label for="forgot-email" class="form-label">Correo Registrado</label>
+              <input type="email" id="forgot-email" class="form-input" placeholder="tucorreo@colegio.edu" required />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Enviar Instrucciones</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4: Solicitar Pedido -->
+    <div class="modal-overlay" id="modal-order">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 class="modal-title">Solicitar Pedido</h3>
+          <button type="button" class="modal-close-btn" data-close-modal="modal-order">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div style="background: var(--surface-raised); padding: 0.875rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem;">
+            <strong id="order-product-name" style="font-size: 0.9375rem; color: var(--text-main); display: block;">Nombre del producto</strong>
+            <div class="item-meta" style="margin-top: 0.25rem;">
+              <span>Precio unitario: S/. <span id="order-unit-price">0.00</span></span>
+              <span class="meta-separator">·</span>
+              <span id="order-seller-name">Emprendedor</span>
+            </div>
+          </div>
+
+          <form id="form-submit-order">
+            <input type="hidden" id="order-product-id" />
+            <div class="form-grid-2">
+              <div class="form-field">
+                <label for="order-quantity" class="form-label">Cantidad</label>
+                <input type="number" id="order-quantity" class="form-input" min="1" max="50" value="1" required />
+              </div>
+              <div class="form-field">
+                <label for="order-date" class="form-label">Fecha deseada de entrega</label>
+                <input type="date" id="order-date" class="form-input" required />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="order-notes" class="form-label">Observaciones y Personalización</label>
+              <textarea id="order-notes" class="form-textarea" rows="3" placeholder="Detalles de color, dedicatoria, horario preferido o dudas..."></textarea>
+            </div>
+
+            <div style="background: var(--surface-raised); border-radius: var(--radius-sm); padding: 0.75rem 1rem; margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.875rem; font-weight: 600;">Total Estimado:</span>
+              <span style="font-size: 1.25rem; font-weight: 800; color: var(--primary);">S/. <span id="order-calculated-total">0.00</span></span>
+            </div>
+
+            <p class="form-hint" style="margin-bottom: 1.25rem;">
+              * Al enviar tu solicitud, el estudiante revisará la fecha y disponibilidad. El pago y entrega se coordinan directamente en la institución.
+            </p>
+
+            <button type="submit" class="btn btn-primary btn-block">Confirmar y Enviar Solicitud</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 5: Reportar Publicación -->
+    <div class="modal-overlay" id="modal-report">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 class="modal-title">Reportar Publicación</h3>
+          <button type="button" class="modal-close-btn" data-close-modal="modal-report">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="form-report">
+            <input type="hidden" id="report-product-id" />
+            <div class="form-field">
+              <label for="report-reason" class="form-label">Motivo del Reporte</label>
+              <select id="report-reason" class="form-select" required>
+                <option value="">Selecciona un motivo</option>
+                <option value="Contenido no apto para entorno escolar">Contenido no apto para entorno escolar</option>
+                <option value="Información o precio engañoso">Información o precio engañoso</option>
+                <option value="Incumplimiento reiterado de entregas">Incumplimiento reiterado de entregas</option>
+                <option value="Datos de contacto incorrectos">Datos de contacto incorrectos</option>
+                <option value="Otro motivo">Otro motivo</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="report-details" class="form-label">Detalles de la queja</label>
+              <textarea id="report-details" class="form-textarea" rows="3" placeholder="Explica brevemente la situación para la moderación escolar..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger btn-block">Enviar Reporte a Administración</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 6: Crear / Editar Publicación -->
+    <div class="modal-overlay" id="modal-create-product">
+      <div class="modal-container" style="max-width: 640px;">
+        <div class="modal-header">
+          <h3 class="modal-title" id="create-modal-title">Nueva Publicación</h3>
+          <button type="button" class="modal-close-btn" data-close-modal="modal-create-product">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="form-manage-product">
+            <input type="hidden" id="manage-product-id" />
+
+            <div class="form-field">
+              <label for="prod-form-title" class="form-label">Título de la Publicación</label>
+              <input type="text" id="prod-form-title" class="form-input" placeholder="Ej: Taza Floral Decorada en Cerámica" required />
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-field">
+                <label for="prod-form-type" class="form-label">Tipo de Publicación</label>
+                <select id="prod-form-type" class="form-select" required>
+                  <option value="producto">Producto Físico</option>
+                  <option value="servicio">Servicio / Clase / Asesoría</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="prod-form-category" class="form-label">Categoría</label>
+                <select id="prod-form-category" class="form-select" required>
+                  <!-- Inyectado dinámicamente -->
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-field">
+                <label for="prod-form-price" class="form-label">Precio en Soles (S/.)</label>
+                <input type="number" id="prod-form-price" class="form-input" min="1" step="0.5" placeholder="Ej: 25.00" required />
+              </div>
+
+              <div class="form-field">
+                <label for="prod-form-avail" class="form-label">Disponibilidad</label>
+                <select id="prod-form-avail" class="form-select" required>
+                  <option value="disponible">Disponible de inmediato</option>
+                  <option value="por_encargo">Por encargo / A pedido</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="prod-form-time" class="form-label">Tiempo estimado de elaboración / Entrega</label>
+              <input type="text" id="prod-form-time" class="form-input" placeholder="Ej: 2 días de anticipación / Inmediato" required />
+            </div>
+
+            <div class="form-field">
+              <label for="prod-form-desc" class="form-label">Descripción Detallada</label>
+              <textarea id="prod-form-desc" class="form-textarea" rows="3" placeholder="Describe los materiales, dimensiones, proceso artesanal o características..." required></textarea>
+            </div>
+
+            <div class="form-field">
+              <label for="prod-form-image" class="form-label">URL de Imagen Representativa</label>
+              <input type="url" id="prod-form-image" class="form-input" placeholder="https://..." />
+              <span class="form-hint">Puedes dejar en blanco para usar la imagen predeterminada de tu categoría.</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="btn-save-product-submit">Guardar y Publicar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenedor Flotante de Notificaciones Toast -->
+    <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+    <!-- Pie de Página (Footer) -->
+    <footer class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand-wrap">
+            <div class="brand-link">
+              <div class="brand-icon">C</div>
+              <span class="brand-name">CREAMARKET</span>
+            </div>
+            <p class="footer-text">
+              Plataforma comunitaria de emprendimiento escolar orientada a potenciar la creatividad, el trabajo colaborativo y la educación financiera en los estudiantes.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Navegación</h4>
+            <ul class="footer-links">
+              <li><a href="#" class="footer-link footer-nav-home">Inicio</a></li>
+              <li><a href="#" class="footer-link footer-nav-explore">Explorar Catálogo</a></li>
+              <li><a href="#" class="footer-link footer-nav-categories">Categorías</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Normas Escolares</h4>
+            <ul class="footer-links">
+              <li><span class="footer-link">Compromiso de entrega</span></li>
+              <li><span class="footer-link">Convivencia armónica</span></li>
+              <li><span class="footer-link">Precios justos escolares</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Comunidad</h4>
+            <ul class="footer-links">
+              <li><span class="footer-link">Feria Anual de Ciencias y Arte</span></li>
+              <li><span class="footer-link">Talleres de Emprendimiento</span></li>
+              <li><span class="footer-link">Soporte y Orientación</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 CREAMARKET - Proyecto Educativo Institucional. Todos los derechos reservados.</p>
+          <p>Donde tu creatividad se convierte en oportunidad.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script Principal en JavaScript Vanilla ES6+ Modular -->
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
